@@ -2,6 +2,7 @@
 :root{
   --espresso:#3E2F2A;--taupe-dk:#5E4B45;--cocoa:#8B5E3C;--mocha:#7D655D;--caramel:#C69C6D;
   --taupe:#A08983;--latte:#C7B4A9;--cream:#EDE6DF;--road:#D9CFC6;--bg:#FBF8F4;
+  --tint:#F4ECE4;--tint2:#EDE2D8;--neutral:#6B6461;
   --hook:#FBF0CF;--hook-line:#E2932A;--hook-text:#5E4B45;
   --ink:#2A201C;--ink2:#342823;
   --serif:Georgia,"Times New Roman",serif;
@@ -228,3 +229,6 @@ footer.foot{text-align:center;font-size:var(--fs-label);letter-spacing:1px;color
 .subj-hero .ic{outline:1.5px solid rgba(255,255,255,.45);outline-offset:7px}
 .rstep .dot{outline:1px solid var(--latte);outline-offset:5px}
 @media (prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+
+.part .phead h2 a{text-decoration:none;color:inherit;border-bottom:1.5px solid var(--pl)}
+.part .phead h2 a:hover{border-bottom-color:var(--pc)}

@@ -1,4 +1,4 @@
-/* Board Exam 2027 Reviewer: page builder (design code; text lives in content/subjects.js) */
+/* Psychologist Board Exam Reviewer: page builder (design code; text lives in content/subjects.js) */
 (function () {
   var S = window.SUBJECTS || [];
   var ICONS = {
@@ -14,7 +14,7 @@
   window.ICONS = ICONS;
   function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
   function vars(s) { return '--c:' + s.color + ';--l:' + s.light + ';--d:' + s.dark; }
-  function count(s) { var n = 0; s.parts.forEach(function (p) { n += p.chapters.length; }); return n; }
+  function count(s) { var n = 0; s.parts.forEach(function (p) { p.chapters.forEach(function (c) { if (c.count !== false) n++; }); }); return n; }
   function $(q) { return document.querySelector(q); }
 
   /* ---- home: the bookshelf ---- */
@@ -70,7 +70,7 @@
     var id = new URLSearchParams(location.search).get('s');
     var idx = Math.max(0, S.findIndex(function (s) { return s.id === id; }));
     var s = S[idx];
-    document.title = s.name + ' · Board Exam 2027 Reviewer';
+    document.title = s.name + ' · Psychologist Board Exam Reviewer';
     document.body.setAttribute('style', vars(s));
     var meta = document.querySelector('meta[name=theme-color]'); if (meta) meta.content = s.dark;
 
@@ -79,7 +79,7 @@
     }).join('');
 
     var n = count(s), ready = 0;
-    s.parts.forEach(function (p) { p.chapters.forEach(function (c) { if (c.page) ready++; }); });
+    s.parts.forEach(function (p) { p.chapters.forEach(function (c) { if (c.page && c.count !== false) ready++; }); });
     var html = '<section class="subj-hero"><div class="wrap"><div class="ic">' + (ICONS[s.icon] || '') + '</div><div>' +
       '<div class="k">SUBJECT ' + (idx + 1) + ' OF ' + S.length + '</div><h1>' + esc(s.name) + '</h1><div class="stats">' +
       (n ? '<span>' + n + ' chapters</span><span>' + s.parts.length + ' parts</span><span>' + ready + ' ready to study</span>' : '<span>Coming soon</span>') +
@@ -88,7 +88,7 @@
     if (n) {
       html += '<div class="parts">' + s.parts.map(function (p, pi) {
         return '<div class="part" style="--pc:' + p.color + ';--pl:' + p.light + '"><div class="pdot">' + (pi + 1) + '</div>' +
-          '<div class="phead"><h2>' + esc(p.name) + '</h2><span>' + esc(p.sub) + '</span></div>' +
+          '<div class="phead"><h2>' + (p.page ? '<a href="' + p.page + '">' + esc(p.name) + ' ›</a>' : esc(p.name)) + '</h2><span>' + esc(p.sub) + '</span></div>' +
           p.chapters.map(function (c) {
             var inner = '<span class="cn">' + c.n + '</span><span class="ct">' + esc(c.title) + '</span>';
             if (c.page) return '<a class="ch" href="' + c.page + '">' + inner + '<span class="cs go">' + esc(c.note || 'Study') + ' ›</span></a>';

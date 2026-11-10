@@ -5,6 +5,8 @@
 
   status: "ready" = page is live, "preview" = some stops are live, "soon" = coming soon
   page:   the file that opens when the chapter is tapped (leave out if not built yet)
+  part page: the part title links to that page (e.g. Part 1 intro). tab: short name on the page tabs.
+  count: false = an extra page (Part 1 intro, second half of a chapter) that is not counted as a chapter
 */
 window.SUBJECTS = [
   {
@@ -23,15 +25,16 @@ window.SUBJECTS = [
     parts: [
       { name: "General Topics", sub: "Chapters 1 to 4", color: "#5E4B45", light: "#EDE6DF",
         chapters: [
-          { n: 1, title: "Introduction and Overview", status: "ready", note: "Study", page: "chapters/psychotherapy/ch01.html" },
-          { n: 2, title: "The Counselor as Person and Professional", status: "ready", note: "Study", page: "chapters/psychotherapy/ch02.html" },
-          { n: 3, title: "Ethical Issues in Counseling Practice", status: "ready", note: "Study", page: "chapters/psychotherapy/ch03.html" },
-          { n: 4, title: "Case Documentation", status: "ready", note: "Study", page: "chapters/psychotherapy/ch04.html" }
+          { n: 1, title: "Introduction and Overview", tab: "Introduction", status: "ready", note: "Study", page: "chapters/psychotherapy/ch01.html" },
+          { n: 2, title: "The Counselor as Person and Professional", tab: "Counselor as Person", status: "ready", note: "Study", page: "chapters/psychotherapy/ch02.html" },
+          { n: 3, title: "Ethical Issues in Counseling Practice", tab: "Ethics", status: "ready", note: "Study", page: "chapters/psychotherapy/ch03.html" },
+          { n: 4, title: "Case Documentation", tab: "Case Documentation", status: "ready", note: "Study", page: "chapters/psychotherapy/ch04.html" }
         ] },
-      { name: "The First Force", sub: "Psychodynamic", color: "#9E3D62", light: "#F6DCE5",
+      { name: "The First Force", sub: "Psychodynamic", color: "#9E3D62", light: "#F6DCE5", page: "chapters/psychotherapy/part1.html", tab: "Part 1 intro",
         chapters: [
-          { n: 5, title: "Psychoanalytic and Psychodynamic Therapy" },
-          { n: 6, title: "Adlerian Therapy" }
+          { n: "5A", title: "Psychoanalytic Therapy (Chapter 5, first half)", tab: "Psychoanalytic", status: "ready", note: "Study", page: "chapters/psychotherapy/ch05a.html" },
+          { n: "5B", title: "Psychodynamic Therapy (Chapter 5, second half)", tab: "Psychodynamic", count: false, status: "ready", note: "Study", page: "chapters/psychotherapy/ch05b.html" },
+          { n: 6, title: "Adlerian Therapy", tab: "Adlerian", status: "ready", note: "Study", page: "chapters/psychotherapy/ch06.html" }
         ] },
       { name: "The Second Force", sub: "Cognitive-behavioral", color: "#5F6328", light: "#E7E9CC",
         chapters: [

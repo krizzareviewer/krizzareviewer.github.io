@@ -1,7 +1,7 @@
 # Krizza's Board Exam 2027 Reviewer Website: complete handoff
 
 Read this whole file first in every new chat. It is the single source of truth for how the site is built
-and how to work. Last updated: Nov 10 2026, after Chapter 1 (Psychotherapy and Counseling) was finished.
+and how to work. Last updated: Nov 10 2026, after the First Force pages (Part 1, Ch 5A, 5B, 6) were built in pink.
 
 ## 1. Who and what
 - Owner: Krizza Mae L. Tapawan. Goal: Philippines Psychologist Board Exam 2027.
@@ -150,9 +150,67 @@ home page: do NOT use them on pages.
   Scene test page (not published): copy is in ~/Library/Caches/krizzareviewer-site/_t/scenes.html?ch=02&c=1&only=0,3
   shows every scene of a chapter at once (useful because the hidden Browser pane lags on scroll screenshots).
 - Expert accuracy flags for Ch 2 to 4: `.tools/plans/ch02-04-expert-flags.md` (she has not decided on them yet).
-- Status of publishing: see the latest chat; if Ch 2 to 4 are not live yet, publish after her OK.
-- NEXT: Chapter 5 "Psychoanalytic and Psychodynamic Therapy" (first force; ask her about the rose outfit color first).
-  The reviewer also has a short "Part 1: The First Force" intro before Chapter 5; ask her where it should go.
+- PUBLISHED Nov 10 2026 (commit 3f44465): Chapters 2 to 4, new scenes, and the Chapter 1 Section 5 note. All live pages return 200.
+  Delete ~/Library/Caches/krizzareviewer-site/_t before every publish (publish.sh uploads everything in that folder).
+- FIRST FORCE (pink) BUILT Nov 10 2026, NOT YET PUBLISHED (waiting for her OK). At her request it is 4 pages:
+  chapters/psychotherapy/part1.html (Part 1 intro, 3 sections), ch05a.html (Psychoanalytic, 10 sections, 12 quotes),
+  ch05b.html (Psychodynamic, 10 sections, 3 quotes), ch06.html (Adlerian, 11 sections, 7 quotes). All quotes verified,
+  phone width checked (no sideways scroll), every bubble inside its scene and above the heads on phones.
+  Table of contents (subjects.js): entries P1, 5A, 5B, 6. `count: false` = extra page not counted as a chapter (site.js).
+  The old single ch05.html was replaced (never published).
+- Expert accuracy flags for these: `.tools/plans/ch05-06-expert-flags.md` (she has not decided yet).
+- NEXT: after her OK, publish (delete ~/Library/Caches/krizzareviewer-site/_t first). Then Chapters 7 to 9 (Second Force, olive).
+
+## 9a. Force themes (her choices, Nov 10 2026, First Force)
+- Whole page in the force color, no dark brown: pink top bar and cover band, very light pink page, darker pink headings and
+  labels, dark wine big-idea bars. Yellow memory hooks and book citation colors stay.
+- How: `.tools/make_theme.rb force1 css` writes `assets/force1.css` = style.css + chapter.css with the browns swapped (map in
+  the script) + small extras. Force pages link ONLY force1.css and use `<body class="chapter force1">`. Re-run the script after
+  ANY edit to style.css or chapter.css. A new force = copy the force1 block with new colors.
+- Office (cover + room scenes): ivory and pink wall, white, beige rug and floor, green plants, brown shelves and tables, pink
+  furniture. Cover: `make_theme.rb force1 cover`. Scenes: ROOM_THEMES in scenes.js (keep it the same as make_theme.rb "room").
+- The therapist woman wears a pink dress in every scene (scenes.js recolors only her figure files at load, incl. her chair). NO pink on the male therapist or the clients (her rule): their figures keep their own colors.
+- Clients in scenes: she wants clients shown. New scenes: couch (client lying on the analytic couch, drawn from her
+  client-woman figure turned to lie flat, legs straight; data-who="1" = the client), couchtalk, explain (therapist at a board,
+  client seated listening). She rejected two earlier lying figures as distorted and too tall.
+- Phone: on force pages the scene box is taller and the whole room shows, so bubbles fit above heads (scenes.js "meet").
+- These 4 pages were made with a small builder script (head, section bar, chapter map from a list + one file per section).
+  To build a new force chapter, copy part1.html for the head and structure.
+
+## 9c. Her rules from Nov 11 2026 (apply to EVERY chapter)
+- Navigation (assets/chapter.js, automatic): a LEFT number menu (one number per section, tap to jump) and TOP tabs with
+  the pages of the current part (from content/subjects.js: part `page`/`tab`, chapter `tab`). Chapter pages must load
+  `../../content/subjects.js` before chapter.js. The Part 1 intro is NOT a chapter: the part title links to it in the TOC.
+- Citations: ONLY in the page top (source chips) and on verbatim definitions/quotes (.def .ci, big quotes). No source chips
+  in section heads, none in tables, labels or item cards. Theorist names that are content (Dreikurs, Mitchell, Kohut) stay.
+  `strip.rb`-style cleanup was done on Ch 1 to 4 (backups were in the session scratchpad).
+- Box system (same information = same box): .def verbatim definition · .flow workflow (steps, phases, processes) ·
+  .cmp table (comparisons, lists of techniques/approaches; she likes tables) · .kw key words · .verdict or two-column table
+  for strengths/limits · .confuse "Don't confuse" · YELLOW (.hook, .ma, .ltr-s) = memory aid ONLY, never the force color ·
+  details.more = tap for more.
+- Section skeleton, in this order: head (no chips) → [scene | KEY POINTS panel, often a .flow] → definitions →
+  workflows → tables → Don't confuse → memory hook. Keep almost all reviewer info, few words, no citations.
+- Light text on dark/pink areas is WHITE (not cream).
+- Scenes: the room shows extra wall on top; bubbles are placed by scenes.js on EMPTY wall (it measures every object and
+  never covers a face) with a drawn tail to the speaker. Most scenes now include a client. Never position bubbles by hand.
+- Outfits on force1 pages (scenes.js figs): psychologist woman = pink dress + white coat (pink chair); male therapist =
+  white coat, light pink inner, dark pink tie and pants; client woman = white with dark pink accents; client man = white
+  top, dark pink pants. All chair legs dark. No other pink on men and clients.
+- Chapters 1 to 4: she preferred their EARLIER arrangement, so they were RESTORED to it (Nov 11 2026), keeping the new name,
+  nav, white text and the citation cleanup (book tags removed except page top and verbatim quotes).
+- Design team plan (UI/UX + infographic designers): `.tools/plans/design-plan-merged.md` (+ the two full reviews). Built on
+  5A, Part 1, 5B, 6 (v5 CSS block): tinted section-head bands with a dark one-line bar in EVERY section ("IN ONE LINE" when
+  the reviewer has no Big idea; paraphrase only), tinted panels holding white cards, .split (strengths + / limits −),
+  short tables → pair cards (chapter.js), .cycle (non-linear phases), .stairs, .tree (lineage), .dir (who → whom arrows),
+  .ice (iceberg), .range (bars on one scale), .sets (three lists), .ribbon (memory aid: word → letter → term, yellow).
+  Scene column 5fr/7fr; chapter.js fits the scene to the column (crop up to 16%, else pull boxes up, or sticky).
+- Name: "Psychologist Board Exam Reviewer" in the header and titles (no "2027"; the footer ownership line stays).
+- Compact rule (her "less scrolling, no wasted space"): chapter body text 13px (= workflow description size), tighter
+  paddings. Workflows (.flow) are CSS grids so titles and descriptions line up across boxes; memory-aid letters sit
+  beside their word. chapter.js re-lays two-column tables (.cmp with term + description) as .tgrid: the term column is as
+  wide as the longest term, short tables fold into two columns; and it pulls the next boxes up beside a scene when the
+  right column is shorter than the picture (computer only). The scene room has no extra top line.
+- Unclear dark "label chips" (dark chip followed by light chips) are replaced by a small heading (.sub) + chips.
 
 ## 9b. Paused experiment: "Talking Room" (Nov 10 2026). SHE PREFERS THE PREVIOUS DESIGN.
 - She asked to save it and not act on it; she "will probably get back to this later". Keep building chapters
@@ -174,6 +232,7 @@ home page: do NOT use them on pages.
   Person-Centered section (Corey Ch. 7)" is ON HOLD by her choice (it will be covered in that later chapter).
 
 ## 10. Open items to raise with her (one at a time, when relevant)
+- First Force expert flags: `.tools/plans/ch05-06-expert-flags.md`.
 - Chapter 1 expert accuracy flags (her reviewer unchanged): (1) "Eclecticism = mixing without a rationale": in
   Norcross & Beutler technical eclecticism is a recognized type; "no rationale" fits syncretism; the type is usually
   named "technical eclecticism". (2) MI as "postmodern" in Corey: check the 2024 book. (3) Many reviewers call

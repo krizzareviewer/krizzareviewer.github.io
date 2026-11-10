@@ -11,7 +11,9 @@ Owner: Krizza Mae L. Tapawan. All reviewer content comes only from her finished 
 - `assets/style.css`, `assets/site.js`: design and page code.
 - `chapters/<subject>/chNN.html`: chapter pages. Each holds its own text, section by section, with comments marking each section.
   Shared look in `assets/chapter.css`, behavior (section bar, Recall mode) in `assets/chapter.js`.
-  Psychotherapy Ch. 1 to 4 are done (General Topics, all brown, visual, clickable section bar and chapter map; every quote checked verbatim).
+  Psychotherapy Ch. 1 to 4 are done and live (General Topics, all brown, visual, clickable section bar and chapter map; every quote checked verbatim).
+  The First Force (pink) has 4 pages: part1.html (Part 1 intro), ch05a.html (Psychoanalytic), ch05b.html (Psychodynamic), ch06.html (Adlerian).
+  They use `assets/force1.css`, made by `.tools/make_theme.rb force1 css` from style.css + chapter.css with the browns swapped for pinks.
 - `manifest.webmanifest`, `sw.js`, `assets/icon-*.png`: Add to Home Screen and offline use.
   When pages change, raise `VERSION` in `sw.js`.
 - Every page has robots meta tags (noindex, nofollow, noarchive, nosnippet, noimageindex) so search engines do not list it.
@@ -33,7 +35,8 @@ yellow memory hooks (#FBF0CF / #E2932A). Footer on every page: ALL RIGHTS RESERV
 - Live since 2026-11-10: https://krizzareviewer.github.io/ (organization krizzareviewer, owned by her account kurizamei;
   repo krizzareviewer/krizzareviewer.github.io, GitHub Pages from main, root). Her personal account stays free for other things.
   Every section shares one content width (`--wrap` 1120px, `--gutter` 24px / 16px on phone).
-- Next: Psychotherapy Chapter 5 in the same style (see CLAUDE.md section 9).
+- Built Nov 10 2026: The First Force (Part 1 intro, Chapters 5A, 5B, 6) in pink.
+- Next: Psychotherapy Chapters 7 to 9 (The Second Force), see CLAUDE.md section 9.
 
 ## Publishing
 The Mac has no git. Updates are uploaded as one commit through the GitHub API with the official `gh` tool
