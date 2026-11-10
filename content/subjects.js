@@ -23,7 +23,7 @@ window.SUBJECTS = [
     parts: [
       { name: "General Topics", sub: "Chapters 1 to 4", color: "#5E4B45", light: "#EDE6DF",
         chapters: [
-          { n: 1, title: "Introduction and Overview", status: "preview", note: "Stops 1 to 3", page: "chapters/psychotherapy/ch01.html" },
+          { n: 1, title: "Introduction and Overview", status: "ready", note: "Study", page: "chapters/psychotherapy/ch01.html" },
           { n: 2, title: "The Counselor as Person and Professional" },
           { n: 3, title: "Ethical Issues in Counseling Practice" },
           { n: 4, title: "Case Documentation" }

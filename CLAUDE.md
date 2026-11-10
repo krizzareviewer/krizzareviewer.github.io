@@ -77,3 +77,9 @@ Her Claude Project "Psychotherapy and Counseling" holds these docs: claude/infog
 - She rejected: playful chalkboard/bookshelf home; an arch-shaped picture outline.
 - Her Mac has no git. Updates are uploaded with GitHub's `gh` tool through the GitHub API (signed in as kurizamei). Raise VERSION in sw.js on each update.
 - Next: work inside Psychotherapy and Counseling (improve Chapter 1 Stops 1 to 3, then Stops 4 to 10).
+
+## Chapter page style (approved direction Nov 10 2026, replaces the scroll-story prototype)
+- Same look as the home page: dark cover with the room scene (outfit recolored per chapter; Chapter 1 is all brown), Georgia headings, Arial 16px body.
+- Sticky section bar (one chip per reviewer section) plus a clickable chapter map. Each section: number ring, title, sources, dark Big Idea bar, dense visual grids (tables, step tracks, ladders, matrices), verbatim definition cards, yellow memory hook, Don't confuse pairs. Little empty space, little text.
+- Recall mode blurs definitions, hooks, and names; tap to reveal.
+- A board-exam expert agent first maps each chapter (high-yield items, exam angles, best visual) from the reviewer text only. Then every quote is checked verbatim against the reviewer by script.
