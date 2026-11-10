@@ -142,13 +142,36 @@ home page: do NOT use them on pages.
   Jones-Smith (2021, 3rd ed., SAGE), Prochaska & Norcross (2010, 7th ed., Brooks/Cole Cengage).
 
 ## 9. Status and next
-- Done: home, 4 subject menus, Psychotherapy Chapter 1 (10 sections, 9 room scenes, 23 quotes verified).
-- NEXT: Psychotherapy Chapter 2 "The Counselor as Person and Professional" (text ready in
-  .tools/reviewer-text/psychotherapy-ch02.txt; sources Corey 2024 Ch. 2, Gehart 2016 Ch. 15, Jones-Smith 2021 Ch. 1).
-  Its 7 sections (reviewer "Section flow"): The Counselor as a Therapeutic Person · Personal Therapy for the Counselor ·
-  The Counselor's Values and the Therapeutic Process · Becoming an Effective Multicultural Counselor ·
-  Issues Faced by Beginning Therapists · The Competent Supervisee · Maintaining Your Vitality as a Person and as a Professional.
-  Ask her one question first: outfit color for Chapter 2 (brown again, like Chapter 1, is the default for general topics).
+- Done: home, 4 subject menus, Psychotherapy Chapters 1 to 4 (all General Topics, brown outfit #A86F48 / #7E5235).
+  Ch 1: 10 sections, 9 scenes, 23 quotes. Ch 2: 7 sections, 7 scenes, 13 quotes. Ch 3: 11 sections, 11 scenes, 21 quotes.
+  Ch 4: 6 sections, 6 scenes, 6 quotes. All quotes verified; phone width 375 checked.
+- Chapters 2 to 4 built Nov 10 2026 (text files psychotherapy-ch03.txt and -ch04.txt cut from psychotherapy-full.txt).
+  New room scenes added to scenes.js: mirror, twosit, scale, doubt, supervise, selfcare, boundary, plan, notes, chart.
+  Scene test page (not published): copy is in ~/Library/Caches/krizzareviewer-site/_t/scenes.html?ch=02&c=1&only=0,3
+  shows every scene of a chapter at once (useful because the hidden Browser pane lags on scroll screenshots).
+- Expert accuracy flags for Ch 2 to 4: `.tools/plans/ch02-04-expert-flags.md` (she has not decided on them yet).
+- Status of publishing: see the latest chat; if Ch 2 to 4 are not live yet, publish after her OK.
+- NEXT: Chapter 5 "Psychoanalytic and Psychodynamic Therapy" (first force; ask her about the rose outfit color first).
+  The reviewer also has a short "Part 1: The First Force" intro before Chapter 5; ask her where it should go.
+
+## 9b. Paused experiment: "Talking Room" (Nov 10 2026). SHE PREFERS THE PREVIOUS DESIGN.
+- She asked to save it and not act on it; she "will probably get back to this later". Keep building chapters
+  with the current recipe (section 6). Do not bring the talking room back unless she asks.
+- What it was: the therapy room fills the whole screen (sticky), a psychologist (therapist-woman) teaches a trainee
+  (therapist-man) in speech bubbles, and info boxes pop up inside the room one at a time as you scroll or tap
+  Next/Back (lines inside a box appear as they are said). Phone: people at the top, boxes over the floor.
+  Inspired by zarcerog.com/theatre and layernative.com/tinkeroll (layout idea only). No sound, no 3D, no Recall.
+- Built only Sections 1 and 2 of Psychotherapy Chapter 1. Never published. Files are parked (not published) in
+  `.tools/experiments/talking-room/` (chapters/psychotherapy/ch01-talk.html, assets/talk.css, assets/talk.js,
+  ch01-story-script.md). To preview again: copy them back to the same paths, run sync.sh, open
+  /chapters/psychotherapy/ch01-talk.html. Testing tip: a hidden Browser pane throttles animation; use
+  `TalkRoom.show(n)` in the console to step beats.
+- Team plan (psychology expert, seasoned therapist, graphic designer, learning designer) for all 10 sections is in
+  `.tools/plans/ch01-story-script.md`. She approved short demonstration lines that are not verbatim but add no facts.
+- From that review: she approved adding "Corey covers the common factors approach to integration in Ch. 15"
+  to Chapter 1 Section 5 (done locally Nov 10 2026 as a chip under the Don't confuse panel; NOT YET PUBLISHED,
+  goes live with the next publish). The Section 6 pointer "Rogers' 3 core conditions are covered in the
+  Person-Centered section (Corey Ch. 7)" is ON HOLD by her choice (it will be covered in that later chapter).
 
 ## 10. Open items to raise with her (one at a time, when relevant)
 - Chapter 1 expert accuracy flags (her reviewer unchanged): (1) "Eclecticism = mixing without a rationale": in

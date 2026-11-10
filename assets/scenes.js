@@ -107,7 +107,47 @@
     /* 9: hand on chest, the person of the therapist */
     chest: function () { return room(400) + alcove(200, 150) + cert(60, 60) + cert(290, 60) + shelf(300) + plant(40) + rug(200, 140) + person('therapist-man-hand-on-chest', 95); },
     /* 10: looking beyond, by the window, globe on the desk */
-    culture: function () { return room(400) + windowArch(240, 50, 100, 125) + globe(90, 150) + '<rect x="55" y="181" width="70" height="6" rx="2" fill="#5E4B45"/><path d="M62 187 V' + FLOOR + ' M118 187 V' + FLOOR + '" stroke="#5E4B45" stroke-width="3.5"/>' + plant(372) + rug(230, 150) + person('therapist-woman-bino', 165); }
+    culture: function () { return room(400) + windowArch(240, 50, 100, 125) + globe(90, 150) + '<rect x="55" y="181" width="70" height="6" rx="2" fill="#5E4B45"/><path d="M62 187 V' + FLOOR + ' M118 187 V' + FLOOR + '" stroke="#5E4B45" stroke-width="3.5"/>' + plant(372) + rug(230, 150) + person('therapist-woman-bino', 165); },
+
+    /* ---- added for Chapters 2 to 4 ---- */
+    /* the self as the instrument: hand on chest beside a wall mirror */
+    mirror: function () { return room(400) + '<ellipse cx="290" cy="105" rx="36" ry="50" fill="#DCE6E6" stroke="#8B5E3C" stroke-width="6"/><path d="M272 80 l14 -12 M268 98 l26 -22" stroke="#FBF8F4" stroke-width="4" stroke-linecap="round"/>' + lamp(370) + plant(36) + cert(70, 60) + rug(200, 150) + person('therapist-woman-chest', 150); },
+    /* the counselor as a client: two therapists seated facing */
+    twosit: function () { return room(400) + windowArch(160, 60, 80, 115) + shelf(300) + lamp(30) + rug(200, 170) + sitter('therapist-woman-side-sitting', 80) + table(200) + sitter('therapist-man-side-sitting', 232, true); },
+    /* values: a balance on the board */
+    scale: function () {
+      var inner = '<path d="M140 64 V120 M118 122 H162 M95 74 H185" stroke="#5E4B45" stroke-width="3.5" stroke-linecap="round"/><path d="M95 74 l-14 26 h28 Z M185 74 l-14 26 h28 Z" fill="none" stroke="#8B5E3C" stroke-width="2.5" stroke-linejoin="round"/><path d="M80 100 a15 6 0 0 0 30 0 M170 100 a15 6 0 0 0 30 0" fill="#C69C6D"/><circle cx="140" cy="62" r="5" fill="#C69C6D"/>';
+      return room(400) + board(45, 45, 190, 92, inner) + plant(372) + rug(270, 120) + person('therapist-man-point', 255);
+    },
+    /* a beginner thinking, armchair waiting */
+    doubt: function () { return room(400) + windowArch(270, 60, 80, 115) + armchair(50) + shelf(160) + plant(372) + rug(220, 160) + person('therapist-man-chin', 235); },
+    /* supervision: supervisor at the board, supervisee listening */
+    supervise: function () {
+      var inner = '<path d="M62 70 h10 M62 88 h10 M62 106 h10 M62 124 h10" stroke="#C69C6D" stroke-width="7" stroke-linecap="round"/><path d="M84 70 H160 M84 88 H150 M84 106 H156 M84 124 H140" stroke="#C7B4A9" stroke-width="4" stroke-linecap="round"/>';
+      var w = 190 * 208 / 345, y = 252 - 190, x = 275;
+      A.push([x + w * 0.5, y + 190 * 63 / 345]);
+      return room(400) + board(45, 50, 140, 92, inner) + plant(375) + rug(260, 140) + person('therapist-woman-point', 160) +
+        '<image href="' + base + 'therapist-man-side-standing.svg" x="' + x + '" y="' + y + '" width="' + w + '" height="190" transform="translate(' + (2 * x + w) + ' 0) scale(-1 1)"/>';
+    },
+    /* vitality: by a sunny window among plants */
+    selfcare: function () { return room(400) + windowArch(60, 55, 100, 125) + '<circle cx="110" cy="96" r="14" fill="#F8EBC8"/>' + plant(40) + plant(190) + plant(372) + rug(250, 150) + person('therapist-woman-up', 245); },
+    /* boundaries: a calm open hand between therapist and client */
+    boundary: function () { return room(400) + windowArch(160, 60, 80, 115) + cert(310, 60) + plant(30) + rug(200, 170) + person('therapist-woman-hold-out', 235, 160) + person('client-man-down', 60, 160); },
+    /* treatment plan: a checklist on the board */
+    plan: function () {
+      var inner = '<rect x="62" y="64" width="14" height="14" rx="2" fill="none" stroke="#8B5E3C" stroke-width="2.5"/><rect x="62" y="90" width="14" height="14" rx="2" fill="none" stroke="#8B5E3C" stroke-width="2.5"/><rect x="62" y="116" width="14" height="14" rx="2" fill="none" stroke="#8B5E3C" stroke-width="2.5"/><path d="M65 71 l4 4 l8 -10 M65 97 l4 4 l8 -10" stroke="#4F7A4A" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M88 71 H190 M88 97 H175 M88 123 H182" stroke="#C7B4A9" stroke-width="4" stroke-linecap="round"/>';
+      return room(400) + board(45, 48, 170, 96, inner) + plant(372) + rug(270, 120) + person('therapist-woman-point', 245);
+    },
+    /* progress notes: clipboard in hand, file cabinet */
+    notes: function () {
+      var cab = '<rect x="290" y="95" width="70" height="110" rx="3" fill="#8B5E3C"/><rect x="297" y="102" width="56" height="30" rx="2" fill="#A07A5A"/><rect x="297" y="137" width="56" height="30" rx="2" fill="#A07A5A"/><rect x="297" y="172" width="56" height="28" rx="2" fill="#A07A5A"/><path d="M318 116 h14 M318 151 h14 M318 185 h14" stroke="#3E2F2A" stroke-width="3" stroke-linecap="round"/>';
+      return room(400) + windowArch(40, 60, 80, 115) + cab + plant(30) + rug(200, 150) + person('therapist-man-hold-out', 150);
+    },
+    /* evaluating progress: a rising line on the board */
+    chart: function () {
+      var inner = '<path d="M62 62 V128 H200" stroke="#5E4B45" stroke-width="2.5" fill="none"/><path d="M70 118 L100 108 L128 112 L156 88 L190 70" stroke="#8B5E3C" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="70" cy="118" r="4" fill="#C69C6D"/><circle cx="100" cy="108" r="4" fill="#C69C6D"/><circle cx="128" cy="112" r="4" fill="#C69C6D"/><circle cx="156" cy="88" r="4" fill="#C69C6D"/><circle cx="190" cy="70" r="5" fill="#E2932A"/>';
+      return room(400) + board(45, 48, 175, 96, inner) + plant(372) + rug(270, 120) + person('therapist-woman-point', 250);
+    }
   };
 
   /* Speech bubble: sits just above the speaker's head, tail pointing at the head.

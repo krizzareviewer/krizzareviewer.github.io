@@ -24,9 +24,9 @@ window.SUBJECTS = [
       { name: "General Topics", sub: "Chapters 1 to 4", color: "#5E4B45", light: "#EDE6DF",
         chapters: [
           { n: 1, title: "Introduction and Overview", status: "ready", note: "Study", page: "chapters/psychotherapy/ch01.html" },
-          { n: 2, title: "The Counselor as Person and Professional" },
-          { n: 3, title: "Ethical Issues in Counseling Practice" },
-          { n: 4, title: "Case Documentation" }
+          { n: 2, title: "The Counselor as Person and Professional", status: "ready", note: "Study", page: "chapters/psychotherapy/ch02.html" },
+          { n: 3, title: "Ethical Issues in Counseling Practice", status: "ready", note: "Study", page: "chapters/psychotherapy/ch03.html" },
+          { n: 4, title: "Case Documentation", status: "ready", note: "Study", page: "chapters/psychotherapy/ch04.html" }
         ] },
       { name: "The First Force", sub: "Psychodynamic", color: "#9E3D62", light: "#F6DCE5",
         chapters: [
