@@ -5,13 +5,16 @@
   var base = (document.currentScript && document.currentScript.src || '').replace(/assets\/scenes\.js.*$/, 'assets/figures/');
   var H = 260, FLOOR = 205;
 
+  var A = []; /* head positions of the characters in the scene being drawn, in order */
   function person(name, x, h, flip) {
     h = h || 190; var w = h * 200 / 345, y = 252 - h;
+    A.push([x + w / 2, y + h * 63 / 345]);
     var t = flip ? ' transform="translate(' + (2 * x + w) + ' 0) scale(-1 1)"' : '';
     return '<image href="' + base + name + '.svg" x="' + x + '" y="' + y + '" width="' + w + '" height="' + h + '"' + t + '/>';
   }
   function sitter(name, x, flip) {
     var h = 175, w = h * 208 / 345, y = 250 - h;
+    A.push([flip ? x + w * (1 - 108 / 208) : x + w * 108 / 208, y + h * 64 / 345]);
     var t = flip ? ' transform="translate(' + (2 * x + w) + ' 0) scale(-1 1)"' : '';
     return '<image href="' + base + name + '.svg" x="' + x + '" y="' + y + '" width="' + w + '" height="' + h + '"' + t + '/>';
   }
@@ -107,8 +110,40 @@
     culture: function () { return room(400) + windowArch(240, 50, 100, 125) + globe(90, 150) + '<rect x="55" y="181" width="70" height="6" rx="2" fill="#5E4B45"/><path d="M62 187 V' + FLOOR + ' M118 187 V' + FLOOR + '" stroke="#5E4B45" stroke-width="3.5"/>' + plant(372) + rug(230, 150) + person('therapist-woman-bino', 165); }
   };
 
+  /* Speech bubble: sits just above the speaker's head, tail pointing at the head.
+     <div class="say" data-who="1"> picks the 2nd character (default: the 1st). */
+  function placeBubble(el) {
+    var b = el.querySelector('.say'); if (!b || !el._heads) return;
+    var head = el._heads[+(b.dataset.who || 0)] || el._heads[0];
+    var W = el.clientWidth, Ht = el.clientHeight, k = Math.max(W / 400, Ht / H);
+    var ox = (W - 400 * k) / 2, oy = Ht - H * k;          /* xMidYMax slice */
+    var hx = ox + head[0] * k, hy = oy + head[1] * k;
+    b.classList.remove('side-l', 'side-r');
+    var bw = b.offsetWidth, bh = b.offsetHeight, pad = 12, r = 40 * k * 190 / 345; /* head radius on screen */
+    if (hy - bh - 14 >= pad) {                /* room above the head: bubble on top, tail down */
+      var left = Math.min(Math.max(hx - bw * 0.3, pad), W - bw - pad);
+      b.style.left = left + 'px'; b.style.top = (hy - bh - 14) + 'px';
+      b.style.setProperty('--tx', Math.min(Math.max(hx - left - 8, 14), bw - 26) + 'px');
+    } else {                                  /* no room above: bubble beside the head, tail sideways */
+      var onLeft = hx > W / 2, cy = hy + r;   /* head centre */
+      var l = onLeft ? hx - r - 14 - bw : hx + r + 14;
+      l = Math.min(Math.max(l, pad), W - bw - pad);
+      var t = Math.min(Math.max(cy - bh / 2, pad), Ht - bh - pad);
+      b.style.left = l + 'px'; b.style.top = t + 'px';
+      b.style.setProperty('--ty', Math.min(Math.max(cy - t - 8, 10), bh - 22) + 'px');
+      b.classList.add(onLeft ? 'side-l' : 'side-r');
+    }
+    b.style.right = 'auto';
+  }
+  var boxes = [];
   document.querySelectorAll('.vg[data-scene]').forEach(function (el) {
     var f = S[el.dataset.scene]; if (!f) return;
+    A = [];
     el.insertAdjacentHTML('afterbegin', '<svg viewBox="0 0 400 ' + H + '" preserveAspectRatio="xMidYMax slice" aria-hidden="true">' + f() + '</svg>');
+    el._heads = A.slice(); boxes.push(el); placeBubble(el);
   });
+  function all() { boxes.forEach(placeBubble); }
+  addEventListener('resize', all);
+  addEventListener('load', all);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(all);
 })();

@@ -320,3 +320,14 @@ details.more>div{margin-top:8px;font-size:var(--fs-sm);color:var(--taupe-dk);lin
 .force .fh{display:flex;align-items:center;gap:10px}
 .force .fh .ini{flex:none;display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.18);font-size:18px;font-weight:bold;outline:1px solid rgba(255,255,255,.5);outline-offset:2px}
 .vg .say small{display:block;font-weight:normal;color:var(--mocha);margin-top:2px}
+/* bubble tail follows the speaker's head (set by scenes.js) */
+.vg .say:after{left:var(--tx,22px)!important;right:auto!important}
+.vg .say.think{border-radius:20px}
+.vg .say.think:after{content:"";border:0;width:10px;height:10px;border-radius:50%;background:#fff;bottom:-14px;box-shadow:0 0 0 1.5px var(--latte)}
+.vg .say.think:before{content:"";position:absolute;left:calc(var(--tx,22px) + 6px);bottom:-24px;width:6px;height:6px;border-radius:50%;background:#fff;box-shadow:0 0 0 1.5px var(--latte)}
+/* bubble beside the head when there is no room above (tail points sideways) */
+.vg .say.side-l:after{left:auto!important;right:-9px!important;bottom:auto;top:var(--ty,14px);border:8px solid transparent;border-left-color:#fff;border-right:0}
+.vg .say.side-r:after{left:-9px!important;bottom:auto;top:var(--ty,14px);border:8px solid transparent;border-right-color:#fff;border-left:0}
+.vg .say.think.side-l:after,.vg .say.think.side-r:after{border:0;width:10px;height:10px}
+.vg .say.think.side-l:after{right:-16px!important}.vg .say.think.side-r:after{left:-16px!important}
+.vg .say.side-l:before,.vg .say.side-r:before{display:none}

@@ -33,7 +33,7 @@ yellow memory hooks (#FBF0CF / #E2932A). Footer on every page: ALL RIGHTS RESERV
 - Live since 2026-11-10: https://krizzareviewer.github.io/ (organization krizzareviewer, owned by her account kurizamei;
   repo krizzareviewer/krizzareviewer.github.io, GitHub Pages from main, root). Her personal account stays free for other things.
   Every section shares one content width (`--wrap` 1120px, `--gutter` 24px / 16px on phone).
-- Next: her feedback on Chapter 1, then Chapter 2 in the same style.
+- Next: Psychotherapy Chapter 2 in the same style (see CLAUDE.md section 9).
 
 ## Publishing
 The Mac has no git. Updates are uploaded as one commit through the GitHub API with the official `gh` tool
