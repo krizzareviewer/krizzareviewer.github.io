@@ -83,3 +83,9 @@ Her Claude Project "Psychotherapy and Counseling" holds these docs: claude/infog
 - Sticky section bar (one chip per reviewer section) plus a clickable chapter map. Each section: number ring, title, sources, dark Big Idea bar, dense visual grids (tables, step tracks, ladders, matrices), verbatim definition cards, yellow memory hook, Don't confuse pairs. Little empty space, little text.
 - Recall mode blurs definitions, hooks, and names; tap to reveal.
 - A board-exam expert agent first maps each chapter (high-yield items, exam angles, best visual) from the reviewer text only. Then every quote is checked verbatim against the reviewer by script.
+
+## Chapter page update (Nov 10 2026, after her feedback)
+- She wants characters acting out each section, but in the MATURE home-page style. Her older road-trip icons (force vehicles, tires, gas station, signs) felt cartoonish; do not use them on pages.
+- assets/scenes.js draws framed room scenes (wall, rail, floor, arch, window, shelf, plants) with her characters from assets/figures/ (front and side-sitting poses). Speech bubbles are HTML on top (.vg .say).
+- No serif anywhere in chapter content (body.chapter uses Arial only). Force color coding (rose, olive, sky, plum, amber, integration teal) applies wherever a force or therapy appears.
+- Less text: keyword chips, short labels, "tap for more" boxes for second-level detail. Verbatim definitions stay.
