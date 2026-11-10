@@ -152,14 +152,16 @@ home page: do NOT use them on pages.
 - Expert accuracy flags for Ch 2 to 4: `.tools/plans/ch02-04-expert-flags.md` (she has not decided on them yet).
 - PUBLISHED Nov 10 2026 (commit 3f44465): Chapters 2 to 4, new scenes, and the Chapter 1 Section 5 note. All live pages return 200.
   Delete ~/Library/Caches/krizzareviewer-site/_t before every publish (publish.sh uploads everything in that folder).
-- FIRST FORCE (pink) BUILT Nov 10 2026, NOT YET PUBLISHED (waiting for her OK). At her request it is 4 pages:
+- FIRST FORCE (pink) PUBLISHED Nov 11 2026 (commit c60cc73), with Ch 1-4 restored to their earlier arrangement. At her request it is 4 pages:
   chapters/psychotherapy/part1.html (Part 1 intro, 3 sections), ch05a.html (Psychoanalytic, 10 sections, 12 quotes),
   ch05b.html (Psychodynamic, 10 sections, 3 quotes), ch06.html (Adlerian, 11 sections, 7 quotes). All quotes verified,
   phone width checked (no sideways scroll), every bubble inside its scene and above the heads on phones.
   Table of contents (subjects.js): entries P1, 5A, 5B, 6. `count: false` = extra page not counted as a chapter (site.js).
   The old single ch05.html was replaced (never published).
 - Expert accuracy flags for these: `.tools/plans/ch05-06-expert-flags.md` (she has not decided yet).
-- NEXT: after her OK, publish (delete ~/Library/Caches/krizzareviewer-site/_t first). Then Chapters 7 to 9 (Second Force, olive).
+- HANDOFF (Nov 11 2026): she moved work to Codex. AGENTS.md (site repo root) is the entry point. Private repo
+  krizzareviewer/reviewer-workspace holds reviewer-text, plans, tools and HANDOFF-PROMPT.md. NEXT: apply the Ch 5-6
+  design rules to Ch 1-4 (see AGENTS.md), then Chapters 7 to 9 (Second Force, olive).
 
 ## 9a. Force themes (her choices, Nov 10 2026, First Force)
 - Whole page in the force color, no dark brown: pink top bar and cover band, very light pink page, darker pink headings and
