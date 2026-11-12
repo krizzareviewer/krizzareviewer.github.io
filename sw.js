@@ -1,7 +1,7 @@
 /* Offline support: saves the site on the phone after the first visit.
    When pages change, raise the version number so phones fetch the new copy. */
-var VERSION = 'reviewer-v11';
-var CORE = ['./', 'index.html', 'subject.html', 'assets/style.css', 'assets/site.js', 'content/subjects.js', 'assets/chapter.css', 'assets/chapter.js', 'assets/scenes.js', 'assets/force1.css',
+var VERSION = 'reviewer-v12-psynthesized-home';
+var CORE = ['psynthesized-reception-final.png', './', 'index.html', 'subject.html', 'assets/style.css', 'assets/site.js', 'content/subjects.js', 'assets/chapter.css', 'assets/chapter.js', 'assets/scenes.js', 'assets/force1.css',
   'assets/icon.svg', 'assets/icon-180.png', 'assets/icon-192.png', 'assets/icon-512.png', 'manifest.webmanifest',
   'chapters/psychotherapy/ch01.html', 'chapters/psychotherapy/ch02.html',
   'chapters/psychotherapy/ch03.html', 'chapters/psychotherapy/ch04.html',
