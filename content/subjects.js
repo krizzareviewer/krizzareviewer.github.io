@@ -77,14 +77,14 @@ window.SUBJECTS = [
   {
     id: "abnormal",
     name: "Abnormal Psychology",
-    color: "#8E3A5C", light: "#F4DDE6", dark: "#4F1F33",
+    color: "#4F7A4A", light: "#E1EEDC", dark: "#2B4628",
     icon: "brain",
     parts: []
   },
   {
     id: "personality",
     name: "Theories of Personality",
-    color: "#4F7A4A", light: "#E1EEDC", dark: "#2B4628",
+    color: "#6E4A73", light: "#EEDFEE", dark: "#432C46",
     icon: "iceberg",
     parts: []
   }

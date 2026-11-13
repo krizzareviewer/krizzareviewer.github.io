@@ -341,8 +341,9 @@ button:focus-visible,summary:focus-visible{outline-color:var(--cocoa)}
 
 </style>
 <link rel="manifest" href="manifest.webmanifest">
-<link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/psynthesized-mark-v2.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="assets/icon-180.png">
+<link rel="stylesheet" href="assets/fixed-header.css">
 </head>
 <body>
 
@@ -358,7 +359,7 @@ button:focus-visible,summary:focus-visible{outline-color:var(--cocoa)}
 
 <!-- ===== FULL-SCREEN HERO ===== -->
 <section class="hero" id="subjects">
-  <div class="cover"><img src="psynthesized-reception-final.png?v=20261113-2" alt="Doc Astrid waving from behind the reception counter at Psynthesized, with chocolate-walnut details and two visitor chairs."></div>
+  <div class="cover"><img src="assets/home-reception-v2.png" alt="Astrid welcoming visitors at the Psynthesized reception desk, with plants and a cream seating area."></div>
   <div class="hero-in">
     <div class="head">
       <div>
@@ -399,7 +400,7 @@ button:focus-visible,summary:focus-visible{outline-color:var(--cocoa)}
 </section>
 
 <section class="own" id="ownership"><div class="own-in"><div class="seal" aria-hidden="true"><span>Ψ</span></div><div><div class="eyebrow">PSYNTHESIZED</div><h2>Psychology, brought into focus.</h2><p>Visual concepts, connected ideas, and a space to study.</p><p>Quoted definitions remain the work of their authors and are cited throughout the reviewer.</p><div class="own-sign">© 2026 Psynthesized. All rights reserved.</div></div></div></section>
-<footer class="foot">PSYNTHESIZED · ALL RIGHTS RESERVED</footer>
+<footer class="foot">PSYNTHESIZED · ALL RIGHTS RESERVED 2026</footer>
 <script src="content/subjects.js"></script>
 <script>
 /* Psychologist Board Exam Reviewer: page builder (design code; text lives in content/subjects.js) */
@@ -553,7 +554,7 @@ document.querySelector('#subject-links').replaceChildren(...window.SUBJECTS.map(
   const status = document.createElement('small');status.textContent = subject.parts.length ? 'Open reviewer →' : 'Coming soon';
   link.append(name,status);return link;
 }));
-document.querySelectorAll('#shelf a').forEach((link) => {link.href = new URL(link.getAttribute('href'),'https://krizzareviewer.github.io/').href;});
+// Keep subject card links relative so local and deployed copies use their own subject page.
 
 // One selected reference tab is in the keyboard sequence, with a named panel.
 const referenceTabs = [...document.querySelectorAll('#refTabs [role="tab"]')];
